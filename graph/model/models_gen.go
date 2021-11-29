@@ -2,23 +2,7 @@
 
 package model
 
-import (
-	"github.com/phifertoo/go_graphql_server/models"
-)
-
 type NewMeetup struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
-}
-
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
-}
-
-type Todo struct {
-	ID   string       `json:"id"`
-	Text string       `json:"text"`
-	Done bool         `json:"done"`
-	User *models.User `json:"user"`
 }

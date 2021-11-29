@@ -38,7 +38,7 @@ models:
     model: github.com/phifertoo/go_graphql_server/models.Meetup
     fields:
       user:
-        resolver: true
+        resolver: false
 # Where should the resolver implementations go?
 resolver:
   layout: follow-schema

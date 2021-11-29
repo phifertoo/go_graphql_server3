@@ -2,42 +2,6 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Todo {
-  id: ID!
-  text: String!
-  done: Boolean!
-  user: User!
-}
-
-input NewTodo {
-  text: String!
-  userId: String!
-}
-
-type User {
-  id: ID!
-  username: String!
-  email: String!
-
-  meetups: [Meetup!]!
-}
-
-type Meetup {
-  id: ID!
-  name: String!
-  description: String!
-  user: User!
-}
-
 type Query {
   meetups: [Meetup!]!
-}
-
-type Mutation {
-  createMeetup(input: NewMeetup!): Meetup!
-}
-
-input NewMeetup {
-  name: String!
-  description: String!
 }
