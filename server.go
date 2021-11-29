@@ -42,10 +42,10 @@ func main() {
 		UsersRepo:   postgres.UsersRepo{DB: DB},
 	}}
 
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(c))
+	queryHandler := handler.NewDefaultServer(generated.NewExecutableSchema(c))
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	http.Handle("/query", srv)
+	http.Handle("/query", graph.DataloaderMiddleware(DB, queryHandler))
 
 	log.Printf("connect to http://localhost:%s/ for GraphQL playground", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))

@@ -11,7 +11,9 @@ import (
 )
 
 func (r *meetupResolver) User(ctx context.Context, obj *models.Meetup) (*models.User, error) {
-	return r.UsersRepo.GetUserByID(obj.UserID)
+	return getUserLoader(ctx).Load(obj.UserID)
+
+	// return r.UsersRepo.GetUserByID(obj.UserID)
 	// user := new(models.User)
 	// for _, u := range users {
 	// 	if u.ID == obj.UserID {
@@ -19,6 +21,7 @@ func (r *meetupResolver) User(ctx context.Context, obj *models.Meetup) (*models.
 	// 		break
 	// 	}
 	// }
+
 	// return user, nil
 }
 
