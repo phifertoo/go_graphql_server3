@@ -24,7 +24,7 @@ func (r *meetupResolver) User(ctx context.Context, obj *models.Meetup) (*models.
 	// return user, nil
 }
 
-func (m *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeetup) (*models.Meetup, error) {
+func (r *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeetup) (*models.Meetup, error) {
 	if len(input.Name) < 3 {
 		return nil, errors.New("name not long enough")
 	}
@@ -37,7 +37,7 @@ func (m *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeet
 		UserID:      "1",
 	}
 
-	return m.MeetupsRepo.CreateMeetup(meetup)
+	return r.MeetupsRepo.CreateMeetup(meetup)
 	// panic(fmt.Errorf("not implemented"))
 }
 

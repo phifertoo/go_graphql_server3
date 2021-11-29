@@ -306,13 +306,13 @@ type Query {
   meetups: [Meetup!]!
 }
 
+type Mutation {
+  createMeetup(input: NewMeetup!): Meetup!
+}
+
 input NewMeetup {
   name: String!
   description: String!
-}
-
-type Mutation {
-  createMeetup(input: NewMeetup!): Meetup!
 }
 `, BuiltIn: false},
 }
